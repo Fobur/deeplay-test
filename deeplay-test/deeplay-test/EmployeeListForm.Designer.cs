@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.employeeGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +90,7 @@
             // 
             // dataGridViewTextBoxFullNameColumn
             // 
+            this.dataGridViewTextBoxFullNameColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxFullNameColumn.HeaderText = "ФИО:";
             this.dataGridViewTextBoxFullNameColumn.Name = "dataGridViewTextBoxFullNameColumn";
             this.dataGridViewTextBoxFullNameColumn.ReadOnly = true;

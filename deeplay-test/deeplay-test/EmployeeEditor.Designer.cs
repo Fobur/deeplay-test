@@ -26,6 +26,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dateOfBirthPicker = new System.Windows.Forms.DateTimePicker();
@@ -95,7 +97,7 @@
             this.jobTitleChoiceComboBox.Name = "jobTitleChoiceComboBox";
             this.jobTitleChoiceComboBox.Size = new System.Drawing.Size(121, 23);
             this.jobTitleChoiceComboBox.TabIndex = 3;
-            this.jobTitleChoiceComboBox.SelectedIndexChanged += new System.EventHandler(this.jobTitleChoiceComboBox_SelectedIndexChanged);
+            this.jobTitleChoiceComboBox.SelectedIndexChanged += jobTitleChoiceComboBox_SelectedIndexChanged;
             this.jobTitleChoiceComboBox.SelectedIndexChanged += isAllFieldsCompleted;
             // 
             // idTextBox
@@ -104,6 +106,7 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.PlaceholderText = "Только цифры";
             this.idTextBox.Size = new System.Drawing.Size(100, 23);
+            this.idTextBox.KeyPress += IdTextBox_KeyPress;
             this.idTextBox.TextChanged += isAllFieldsCompleted;
             this.idTextBox.TabIndex = 5;
             // 
@@ -183,6 +186,8 @@
             this.uniqueInformationChoiceComboBox.FormattingEnabled = true;
             this.uniqueInformationChoiceComboBox.Location = new System.Drawing.Point(388, 227);
             this.uniqueInformationChoiceComboBox.Name = "uniqueInformationChoiceComboBox";
+            this.uniqueInformationChoiceComboBox.DropDown += AdjustWidthComboBox_DropDown;
+            this.uniqueInformationChoiceComboBox.SelectedIndexChanged += isAllFieldsCompleted;
             this.uniqueInformationChoiceComboBox.Size = new System.Drawing.Size(151, 23);
             this.uniqueInformationChoiceComboBox.TabIndex = 14;
             // 

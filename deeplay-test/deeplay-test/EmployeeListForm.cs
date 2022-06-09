@@ -58,24 +58,23 @@ namespace deeplay_test
         {
             var jobTitleFilter = new BsonDocument();
             if (jobTitleFilterComboBox.SelectedIndex != 0)
-                jobTitleFilter.Add(new BsonElement("Title", jobTitleFilterComboBox.SelectedItem.ToString()));
+                jobTitleFilter.Add("JobTitle.Title", jobTitleFilterComboBox.SelectedItem.ToString());
             if (departmentFilterComboBox.SelectedIndex != 0)
-                jobTitleFilter.Add(new BsonElement("Information", departmentFilterComboBox.SelectedItem.ToString()));
+                jobTitleFilter.Add("JobTitle.Information", departmentFilterComboBox.SelectedItem.ToString());
             await FillTable(jobTitleFilter);
         }
 
         public async Task FillTable(BsonDocument filter)
         {
-            using var filtered = await DataBase.Filter(filter);
+            var filtered = await DataBase.Filter(filter);
             employeeGridView.Rows.Clear();
-            while (await filtered.MoveNextAsync())
+            await filtered.MoveNextAsync();
+            var current = filtered.Current;
+            
+            foreach (var employee in current)
             {
-                var current = filtered.Current;
-                foreach (var employee in current)
-                {
-                    employeeGridView.Rows.Add(employee.Id, employee.Personality.GetFullName(),
-                        employee.JobTitle.Title, employee.JobTitle.Information);
-                }
+                employeeGridView.Rows.Add(employee.Id, employee.Personality.GetFullName(),
+                    employee.JobTitle.Title, employee.JobTitle.Information);
             }
         }
     }

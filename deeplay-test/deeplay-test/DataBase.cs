@@ -31,29 +31,17 @@ namespace deeplay_test
             return await Collection.FindAsync(filter); ;
         }
 
-        public static async Task<string[]> GetArrayOfSupervisorsByJobTitle(string jobTitle)
+        public static async Task<List<string>> GetArrayOfSupervisorsByJobTitle(string jobTitle)
         {
-            var filter = new BsonDocument
-                    {{
-                        "JobTitle", new BsonDocument
-                        {{
-                                "Title", jobTitle
-                        }}
-                    }};
-            var filtered = await Filter(filter);
+            var filtered = await Filter(new BsonDocument("JobTitle.Title", jobTitle));
+            await filtered.MoveNextAsync();
+            var current = filtered.Current;
             var listOfSupervisor = new List<string> { "Нет руководителя" };
-            if (filtered.Current != null)
+            foreach (var employee in current)
             {
-                while (await filtered.MoveNextAsync())
-                {
-                    var current = filtered.Current;
-                    foreach (var employee in current)
-                    {
-                        listOfSupervisor.Add(employee.Personality.GetFullName());
-                    }
-                }
+                listOfSupervisor.Add(employee.Personality.GetFullName());
             }
-            return listOfSupervisor.ToArray();
+            return listOfSupervisor;
         }
     }
 }

@@ -20,7 +20,7 @@
             {"Рабочий", 3}
         };
 
-        public static string[] JobTitles = new string[]
+        public static string[] JobTitles =
         {
             "Директор",
             "Руководитель подразделения",
@@ -28,7 +28,7 @@
             "Рабочий"
         };
 
-        public static string[] JobTitleFilters = new string[]
+        public static string[] JobTitleFilters =
         {
             "Любая",
             "Директор",
@@ -85,7 +85,7 @@
             {"Мужской", 1}
         };
 
-        public static string[] DepartmentFilters = new string[]
+        public static string[] DepartmentFilters =
         {
             "Любое",
             "Подразделение 1",
@@ -93,7 +93,7 @@
             "Подразделение 3"
         };
 
-        public static string[] Departments = new string[]
+        public static string[] Departments =
         {
             "Подразделение 1",
             "Подразделение 2",
@@ -109,7 +109,7 @@
             { 4, "Рабочий" }
         };
 
-        public static string[] Sexes = new string[]
+        public static string[] Sexes =
         {
             "Женский",
             "Мужской"
@@ -122,6 +122,14 @@
             "Финансовый",
             "Коммерческий"
         };
+
+        public enum JobTitleEnum
+        {
+            Director,
+            DepartmentHead,
+            Inspector,
+            Worker
+        }
 
         /*
             Должность - информация:
