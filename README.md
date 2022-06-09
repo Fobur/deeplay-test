@@ -81,7 +81,7 @@
 
 ![image](https://user-images.githubusercontent.com/81422717/172890954-890e70d4-1157-4291-be24-cf123d846cd5.png)
 
-И выбор уникальной информации, взависимости от должности:
+И выбор уникальной информации, в зависимости от должности:
 
 ![image](https://user-images.githubusercontent.com/81422717/172891123-6e2763f8-b9a6-4979-b97f-5bf1a35f26fb.png)
 
