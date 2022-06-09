@@ -2,7 +2,10 @@
 
 # 1. Настройка базы данных
 
-Нужно запустить docker-compose.yml по адресу ...\deeplay-test\deeplay-test\deeplay-test\docker-compose.yml
+Нужен установленный докер. Без него программа работать не будет
+Для запуска контейнера с базой данных:
+Нужно запустить docker-compose.yml по адресу ...\deeplay-test\deeplay-test\deeplay-test\docker-compose.yml в любом терминале и ввести команду- docker compose up
+
 
 # 2. Работа с приложением
 Файл запуска хранится по адресу ...\deeplay-test\deeplay-test\deeplay-test\bin\Debug\net6.0-windows\deeplay-test.exe
